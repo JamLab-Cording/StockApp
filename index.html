@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1 class="display-4">Stock Viewer Homepage</h1>
+            <p class="lead">
+                주식에 대한 정보를 간단하게 볼 수 있는 홈페이지입니다.
+            </p>
+            <hr class="my-4" />
+
+            <div class="input-group mb-10">
+                <div class="input-group-prepend">
+                    <span style="background-color:#ffc107" class="input-group-text" id="basic-addon1">
+                        <b>
+                            Stock Name
+                        </b>
+                    </span>
+                </div>
+				<div style="margin-right: 0.5rem">
+				</div>
+                <input
+					id="inputbox"
+                    type="text"
+                    class="form-control"
+                    placeholder="주식 이름을 입력해주세요"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                />
+				<div style="margin-left: 0.5rem">
+				</div>
+				<button onclick="ScarchButton()" type="button" class="btn btn-primary">
+					Search
+				</button>
+            </div>
+        </div>
+		<p id="demo">
+		</p>
+		<script>
+			function ScarchButton()
+			{
+				var StockInput;
+				StockInput = document.getElementById("inputbox").value;
+				document.getElementById("demo").innerHTML = StockInput;
+			}
+		</script>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
