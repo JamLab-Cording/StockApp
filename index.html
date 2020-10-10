@@ -10,50 +10,84 @@
             integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
             crossorigin="anonymous"
         />
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython.min.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.8.9/brython_stdlib.min.js"
+        ></script>
     </head>
+
     <body>
         <div class="jumbotron">
-            <h1 class="display-4">Stock Viewer Homepage</h1>
+            <h1 class="display-4">
+                Stock Viewer Homepage
+            </h1>
             <p class="lead">
-                주식에 대한 정보를 간단하게 볼 수 있는 홈페이지입니다.
+                주식에 대한 정보를 간단하게 보자
             </p>
             <hr class="my-4" />
 
             <div class="input-group mb-10">
                 <div class="input-group-prepend">
-                    <span style="background-color:#ffc107" class="input-group-text" id="basic-addon1">
+                    <span
+                        style="background-color: #ffc107;"
+                        class="input-group-text"
+                        id="basic-addon1"
+                    >
                         <b>
                             Stock Name
                         </b>
                     </span>
                 </div>
-				<div style="margin-right: 0.5rem">
-				</div>
+
+                <div style="margin-right: 0.5rem;"></div>
+
                 <input
-					id="inputbox"
+                    id="StockInput"
                     type="text"
                     class="form-control"
                     placeholder="주식 이름을 입력해주세요"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                 />
-				<div style="margin-left: 0.5rem">
-				</div>
-				<button onclick="ScarchButton()" type="button" class="btn btn-primary">
-					Search
-				</button>
+
+                <div style="margin-left: 0.5rem;"></div>
+
+                <button
+					id="SearchButton"
+                    onclick="SearchButton()"
+                    type="button"
+                    class="btn btn-primary"
+                >
+                    Search
+                </button>
             </div>
         </div>
-		<p id="demo">
-		</p>
-		<script>
-			function ScarchButton()
-			{
-				var StockInput;
-				StockInput = document.getElementById("inputbox").value;
-				document.getElementById("demo").innerHTML = StockInput;
-			}
-		</script>
+
+        <p id="demo"></p>
+
+        <script>
+            function SearchButton() {
+                var StockInput, urlloading;
+                StockInput = document.getElementById('StockInput').value;
+                urlloading =
+                    'https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=' +
+                    StockInput;
+                document.getElementById('demo').innerHTML = urlloading;
+            }
+        </script>
+        <script>
+            var input = document.getElementById('StockInput');
+            input.addEventListener('keyup', function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById('SearchButton').click();
+                }
+            });
+        </script>
         <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
